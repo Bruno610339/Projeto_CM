@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ProblemsCityApp</string>
+    <string name="notes">See My Notes</string>
+    <string name="help">Help</string>
 </resources>
