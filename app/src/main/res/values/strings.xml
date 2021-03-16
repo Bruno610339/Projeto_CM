@@ -2,4 +2,7 @@
     <string name="app_name">ProblemsCityApp</string>
     <string name="notes">See My Notes</string>
     <string name="help">Help</string>
+    <string name="description_variable">Description:</string>
+    <string name="title_variable">Title:</string>
+    <string name="add_note">Add Note</string>
 </resources>

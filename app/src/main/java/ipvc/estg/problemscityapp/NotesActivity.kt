@@ -14,5 +14,7 @@ class NotesActivity : AppCompatActivity() {
         actionBar!!.title = "Notes"
         actionBar.setDisplayHomeAsUpEnabled(true)
 
+
+
     }
 }
