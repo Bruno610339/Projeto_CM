@@ -14,7 +14,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     //Three Points Menu ----------------------------------------------------------------------------
-
     //Function to call the menu
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main, menu)
@@ -22,13 +21,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
-
-        if (id == R.id.help) {
-
+        when (item.itemId) {
+            R.id.notes -> {
+                val intent = Intent (this, NotesActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.help -> {
+                val intent = Intent (this, HelpActivity::class.java)
+                startActivity(intent)
+            }
         }
-
-        return super.onOptionsItemSelected(item)
+        return true
     }
     //----------------------------------------------------------------------------------------------
 }
