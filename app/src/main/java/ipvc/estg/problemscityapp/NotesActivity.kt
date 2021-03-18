@@ -30,7 +30,7 @@ class NotesActivity: AppCompatActivity() {
         val list = ArrayList<Notes>()
 
         for (i in 0 until size) {
-            val item = Notes("$i", "adfbadbf")
+            val item = Notes("$i", "Description")
             list += item
         }
 
