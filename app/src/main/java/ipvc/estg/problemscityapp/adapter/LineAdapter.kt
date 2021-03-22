@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ipvc.estg.problemscityapp.R
 import ipvc.estg.problemscityapp.dataclasses.Notes
+import kotlinx.android.synthetic.main.recycler_notes_line.view.*
 
 class LineAdapter(private val list: ArrayList<Notes>): RecyclerView.Adapter<LineViewHolder>() {
 
@@ -31,6 +32,6 @@ class LineAdapter(private val list: ArrayList<Notes>): RecyclerView.Adapter<Line
 }
 
 class LineViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-    val title: TextView = itemView.findViewById(R.id.title_content)
-    val description: TextView = itemView.findViewById(R.id.description_content)
+    val title: TextView = itemView.title_content
+    val description: TextView = itemView.description_content
 }
