@@ -10,6 +10,7 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@id/btn_add_note"
         tools:listitem="@layout/recycler_notes_line">
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -19,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
+        android:layout_margin="20dp"
         android:text="@string/add_note">
     </Button>
 
