@@ -27,7 +27,7 @@ public abstract class NoteDB: RoomDatabase() {
                     val noteDao = database.noteDao()
 
                     //Delete all content here
-                    //noteDao.deleteAll()
+                    noteDao.deleteAll()
 
                     //Add sample words
                     var note = Note(1, "Note 1", "Sou uma description", DateFormat.getDateInstance().format(Date()))
