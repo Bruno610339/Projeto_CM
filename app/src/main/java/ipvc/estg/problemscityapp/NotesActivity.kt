@@ -55,10 +55,15 @@ class NotesActivity: AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == addNoteActivityRequestCode && resultCode == Activity.RESULT_OK) {
-            data?.getStringExtra(AddNoteActivity.EXTRA_REPLY)?.let {
-                val note = Note(title = it, description = "it", date = "26-03-2021")
+
+            val titleVar = data?.getStringExtra(AddNoteActivity.EXTRA_TITLE)
+            val descVar = data?.getStringExtra(AddNoteActivity.EXTRA_DESC)
+
+            if(titleVar != null && descVar != null) {
+                val note = Note(title = titleVar, description = descVar, date = "31-03-2021")
                 noteViewModel.insert(note)
             }
+
         } else {
             Toast.makeText(applicationContext, "Not insert", Toast.LENGTH_LONG).show()
         }

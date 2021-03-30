@@ -11,6 +11,7 @@ import ipvc.estg.problemscityapp.R
 import ipvc.estg.problemscityapp.dataclasses.Notes
 import ipvc.estg.problemscityapp.entities.Note
 import kotlinx.android.synthetic.main.recycler_notes_line.view.*
+import org.w3c.dom.Text
 
 class LineAdapter internal constructor(context: Context): RecyclerView.Adapter<LineAdapter.NoteViewHolder>() {
 
