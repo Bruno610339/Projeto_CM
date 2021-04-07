@@ -30,8 +30,8 @@ class AddNoteActivity: AppCompatActivity() {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
             }
             else {
-                replyIntent.putExtra(EXTRA_TITLE, editText01.text.toString())
-                replyIntent.putExtra(EXTRA_DESC, editText02.text.toString())
+                replyIntent.putExtra(EXTRA_REPLY_TITLE, editText01.text.toString())
+                replyIntent.putExtra(EXTRA_REPLY_DESC, editText02.text.toString())
 
                 setResult(Activity.RESULT_OK, replyIntent)
                 Toast.makeText(applicationContext, "New note inserted!", Toast.LENGTH_SHORT).show()
@@ -41,7 +41,7 @@ class AddNoteActivity: AppCompatActivity() {
     }
 
     companion object {
-        const val EXTRA_TITLE = "com.example.android.wordlistsql.REPLY"
-        const val EXTRA_DESC = "com.example.android.wordlistsql.REPLY"
+        const val EXTRA_REPLY_TITLE = "com.example.android.wordlistsql.REPLY"
+        const val EXTRA_REPLY_DESC = "com.example.android.wordlistsql.REPLY"
     }
 }
