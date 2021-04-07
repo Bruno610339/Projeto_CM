@@ -29,19 +29,17 @@ class AddNoteActivity: AppCompatActivity() {
             if (TextUtils.isEmpty(editText01.text)) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
             }
+            if (TextUtils.isEmpty(editText02.text)) {
+                setResult(Activity.RESULT_CANCELED, replyIntent)
+            }
             else {
-                replyIntent.putExtra(EXTRA_REPLY_TITLE, editText01.text.toString())
-                replyIntent.putExtra(EXTRA_REPLY_DESC, editText02.text.toString())
+                replyIntent.putExtra("editText01", editText01.text.toString())
+                replyIntent.putExtra("editText02", editText02.text.toString())
 
                 setResult(Activity.RESULT_OK, replyIntent)
                 Toast.makeText(applicationContext, "New note inserted!", Toast.LENGTH_SHORT).show()
             }
             finish()
         }
-    }
-
-    companion object {
-        const val EXTRA_REPLY_TITLE = "com.example.android.wordlistsql.REPLY"
-        const val EXTRA_REPLY_DESC = "com.example.android.wordlistsql.REPLY"
     }
 }

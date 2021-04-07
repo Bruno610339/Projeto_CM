@@ -7,7 +7,7 @@ import ipvc.estg.problemscityapp.entities.Note
 @Dao
 interface NoteDao {
 
-    @Query("SELECT * FROM note_table")
+    @Query("SELECT * FROM note_table ORDER BY date")
     fun getAllNotes(): LiveData<List<Note>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

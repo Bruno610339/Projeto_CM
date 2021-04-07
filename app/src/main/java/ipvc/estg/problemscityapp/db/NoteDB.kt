@@ -9,8 +9,6 @@ import ipvc.estg.problemscityapp.dao.NoteDao
 import ipvc.estg.problemscityapp.entities.Note
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import java.text.DateFormat
-import java.util.*
 
 
 @Database(entities = arrayOf(Note::class), version = 7, exportSchema = false)
@@ -27,13 +25,14 @@ public abstract class NoteDB: RoomDatabase() {
                     val noteDao = database.noteDao()
 
                     //Delete all content here
-                    noteDao.deleteAll()
+                    //noteDao.deleteAll()
 
                     //Add sample words
-                    var note = Note(1, "Note 1", "Sou uma description", DateFormat.getDateInstance().format(Date()))
+                    /*var note = Note(1, "Note 1", "Sou uma description", )
                     noteDao.insert(note)
-                    note = Note(2, "Note 2", "Sou uma description 2", DateFormat.getDateInstance().format(Date()))
-                    noteDao.insert(note)
+                    note = Note(2, "Note 2", "Sou uma description 2", )
+                    noteDao.insert(note)*/
+
                 }
             }
         }

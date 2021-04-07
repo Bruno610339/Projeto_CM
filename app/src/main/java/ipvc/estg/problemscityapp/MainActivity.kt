@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    //Three Points Menu ----------------------------------------------------------------------------
     //Function to call the menu
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main, menu)
@@ -33,5 +32,4 @@ class MainActivity : AppCompatActivity() {
         }
         return true
     }
-    //----------------------------------------------------------------------------------------------
 }

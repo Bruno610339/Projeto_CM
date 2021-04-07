@@ -12,6 +12,7 @@ import ipvc.estg.problemscityapp.dataclasses.Notes
 import ipvc.estg.problemscityapp.entities.Note
 import kotlinx.android.synthetic.main.recycler_notes_line.view.*
 import org.w3c.dom.Text
+import java.util.*
 
 class LineAdapter internal constructor(context: Context): RecyclerView.Adapter<LineAdapter.NoteViewHolder>() {
 
@@ -19,6 +20,7 @@ class LineAdapter internal constructor(context: Context): RecyclerView.Adapter<L
     private var notes = emptyList<Note>()
 
     class NoteViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+        val noteDate: TextView = itemView.findViewById(R.id.date_content)
         val noteTitle: TextView = itemView.findViewById(R.id.title_content)
         val noteDescription: TextView = itemView.findViewById(R.id.description_content)
     }
@@ -30,6 +32,7 @@ class LineAdapter internal constructor(context: Context): RecyclerView.Adapter<L
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         val current = notes[position]
+        holder.noteDate.text = current.date
         holder.noteTitle.text = current.title
         holder.noteDescription.text = current.description
     }

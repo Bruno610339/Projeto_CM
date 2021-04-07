@@ -2,20 +2,21 @@ package ipvc.estg.problemscityapp
 
 import android.app.Activity
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.widget.Button
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ipvc.estg.problemscityapp.adapter.LineAdapter
-import ipvc.estg.problemscityapp.dataclasses.Notes
 import ipvc.estg.problemscityapp.entities.Note
 import ipvc.estg.problemscityapp.viewModel.NoteViewModel
-import kotlinx.android.synthetic.main.notes.*
+import java.time.LocalDate
 
 class NotesActivity: AppCompatActivity() {
 
@@ -36,6 +37,7 @@ class NotesActivity: AppCompatActivity() {
         val adapter = LineAdapter(this)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.addItemDecoration(DividerItemDecoration(this, 1))
 
         //ViewModel
         noteViewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
@@ -51,20 +53,23 @@ class NotesActivity: AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == addNoteActivityRequestCode && resultCode == Activity.RESULT_OK) {
 
-            val titleVar = data?.getStringExtra(AddNoteActivity.EXTRA_REPLY_TITLE)
-            val descVar = data?.getStringExtra(AddNoteActivity.EXTRA_REPLY_DESC)
+            val titleVar = data?.getStringExtra("editText01")
+            val descVar = data?.getStringExtra("editText02")
+            val dateVar = LocalDate.now().toString()
 
             if(titleVar != null && descVar != null) {
-                val note = Note(title = titleVar, description = descVar, date = "31-03-2021")
+                val note = Note(title = titleVar, description = descVar, date = dateVar)
                 noteViewModel.insert(note)
             }
-        } else {
-            Toast.makeText(applicationContext, "Not insert", Toast.LENGTH_LONG).show()
+        }
+        else {
+            Toast.makeText(applicationContext, "Not inserted!", Toast.LENGTH_LONG).show()
         }
     }
 }
