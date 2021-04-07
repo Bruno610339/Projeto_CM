@@ -28,9 +28,9 @@ public abstract class NoteDB: RoomDatabase() {
                     //noteDao.deleteAll()
 
                     //Add sample words
-                    /*var note = Note(1, "Note 1", "Sou uma description", )
+                    /*var note = Note(1, "Note 1", "Sou uma description", "2021-04-06")
                     noteDao.insert(note)
-                    note = Note(2, "Note 2", "Sou uma description 2", )
+                    note = Note(2, "Note 2", "Sou uma description 2", "2021-04-06")
                     noteDao.insert(note)*/
 
                 }
