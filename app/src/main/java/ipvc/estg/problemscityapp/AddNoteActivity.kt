@@ -1,7 +1,6 @@
 package ipvc.estg.problemscityapp
 
 import android.app.Activity
-import android.app.Notification.EXTRA_TITLE
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
@@ -9,7 +8,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.add_notes.*
 
 class AddNoteActivity: AppCompatActivity() {
 
@@ -26,10 +24,7 @@ class AddNoteActivity: AppCompatActivity() {
         val button = findViewById<Button>(R.id.button01)
         button.setOnClickListener {
             val replyIntent = Intent()
-            if (TextUtils.isEmpty(editText01.text)) {
-                setResult(Activity.RESULT_CANCELED, replyIntent)
-            }
-            if (TextUtils.isEmpty(editText02.text)) {
+            if (TextUtils.isEmpty(editText01.text) || TextUtils.isEmpty(editText02.text)) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
             }
             else {

@@ -12,8 +12,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginEnd="10dp">
+        android:layout_marginRight="100dp"
+        android:layout_marginEnd="100dp">
     </TextView>
 
     <TextView
@@ -24,6 +24,8 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginEnd="100dp"
         android:layout_marginBottom="10dp"
         android:textStyle="bold"
         android:textSize="20sp">
@@ -36,7 +38,34 @@
         android:layout_marginBottom="10dp"
         android:layout_below="@id/title_content"
         android:layout_alignLeft="@id/title_content"
-        android:layout_alignStart="@id/title_content">
+        android:layout_alignStart="@id/title_content"
+        android:layout_marginRight="100dp"
+        android:layout_marginEnd="100dp">
     </TextView>
+
+    <ImageButton
+        android:id="@+id/btn_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/button_edit"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginEnd="25dp">
+    </ImageButton>
+
+    <ImageButton
+        android:id="@+id/btn_remove"
+        android:layout_below="@id/btn_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/button_remove"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginEnd="25dp">
+    </ImageButton>
 
 </RelativeLayout>

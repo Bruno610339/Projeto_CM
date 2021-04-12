@@ -18,7 +18,7 @@ import ipvc.estg.problemscityapp.entities.Note
 import ipvc.estg.problemscityapp.viewModel.NoteViewModel
 import java.time.LocalDate
 
-class NotesActivity: AppCompatActivity() {
+class NotesActivity: AppCompatActivity(), LineAdapter.SendInfo {
 
     private lateinit var noteViewModel: NoteViewModel
     private val addNoteActivityRequestCode = 1
@@ -34,7 +34,7 @@ class NotesActivity: AppCompatActivity() {
 
         //RecyclerView
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-        val adapter = LineAdapter(this)
+        val adapter = LineAdapter(this, this)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.addItemDecoration(DividerItemDecoration(this, 1))
@@ -53,6 +53,13 @@ class NotesActivity: AppCompatActivity() {
         }
     }
 
+    //Remove Note
+    override fun catchingID(id: Int?) {
+        noteViewModel.deleteById(id)
+        Toast.makeText(this, "Note deleted!", Toast.LENGTH_SHORT).show()
+    }
+
+    //Insert Note
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
