@@ -46,12 +46,12 @@ class EditNoteActivity: AppCompatActivity() {
             val replyIntent = Intent()
             if (TextUtils.isEmpty(title.text) || TextUtils.isEmpty(description.text)) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
-                Toast.makeText(applicationContext, "Can't Edit, field empty", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, R.string.toast_02, Toast.LENGTH_SHORT).show()
             }
             else {
                 if (idValue != null) {
                     noteViewModel.edit(title.text.toString(), description.text.toString(), LocalDate.now().toString(), idValue)
-                    Toast.makeText(applicationContext, "Note updated!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, R.string.toast_03, Toast.LENGTH_SHORT).show()
                 }
             }
             finish()

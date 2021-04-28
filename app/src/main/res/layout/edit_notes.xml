@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_margin="25dp"
-        android:text="Edit Note"
+        android:text="@string/edit_note"
         android:textStyle="bold"
         android:textSize="25sp">
     </TextView>
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/description"
         android:layout_centerHorizontal="true"
-        android:text="Save">
+        android:text="@string/save">
     </Button>
 
 </RelativeLayout>

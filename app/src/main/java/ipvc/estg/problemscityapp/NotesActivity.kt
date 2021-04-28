@@ -56,7 +56,7 @@ class NotesActivity: AppCompatActivity(), LineAdapter.SendInfo {
     //Remove Note
     override fun catchingID(id: Int?) {
         noteViewModel.deleteById(id)
-        Toast.makeText(this, "Note deleted!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, R.string.toast_04, Toast.LENGTH_SHORT).show()
     }
 
     //Insert Note
@@ -76,7 +76,7 @@ class NotesActivity: AppCompatActivity(), LineAdapter.SendInfo {
             }
         }
         else {
-            Toast.makeText(applicationContext, "Not inserted!", Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext, R.string.toast_05, Toast.LENGTH_LONG).show()
         }
     }
 }

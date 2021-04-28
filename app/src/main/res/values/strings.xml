@@ -1,7 +1,20 @@
 <resources>
-    <string name="app_name">ProblemsCityApp</string>
+    <string name="app_name" translatable="false">ProblemsCityApp</string>
     <string name="notes">See My Notes</string>
     <string name="help">Help</string>
     <string name="add_note">Add Note</string>
-    <string name="login">Login</string>
+    <string name="login" translatable="false">Login</string>
+    <string name="profile">Profile</string>
+    <string name="save">Save</string>
+    <string name="edit_note">Edit Note</string>
+    <string name="username_title">Username:</string>
+    <string name="password_title" translatable="false">Password:</string>
+    <string name="title_title">Title:</string>
+    <string name="description_title">Description:</string>
+
+    <string name="toast_01">New note inserted!</string>
+    <string name="toast_02">Can´t Edit, field empty!</string>
+    <string name="toast_03">Note updated!</string>
+    <string name="toast_04">Note deleted!</string>
+    <string name="toast_05">Not inserted!</string>
 </resources>

@@ -32,7 +32,7 @@ class AddNoteActivity: AppCompatActivity() {
                 replyIntent.putExtra("editText02", editText02.text.toString())
 
                 setResult(Activity.RESULT_OK, replyIntent)
-                Toast.makeText(applicationContext, "New note inserted!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, R.string.toast_01, Toast.LENGTH_SHORT).show()
             }
             finish()
         }
