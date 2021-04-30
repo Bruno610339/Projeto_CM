@@ -8,8 +8,6 @@ interface EndPoints {
     @GET("users/")
     fun getAllUsers(): Call<List<User>>
 
-    @GET("users/{id}")
-    fun getUserById(@Path("id") id: Int): Call<User>
-
-    
+    @GET("users/{name}")
+    fun getUserByName(@Path("name") name: String): Call<User>
 }

@@ -9,6 +9,7 @@
     <string name="title_title">Título:</string>
     <string name="description_title">Decrição:</string>
     <string name="username_title">Utilizador:</string>
+    <string name="logout">Desconectar</string>
 
     <string name="toast_01">Nova Nota inserida!</string>
     <string name="toast_02">Sem Edição, campo vazio!</string>

@@ -1,6 +1,8 @@
 package ipvc.estg.problemscityapp
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -33,7 +35,24 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent (this, HelpActivity::class.java)
                 startActivity(intent)
             }
+            R.id.logout -> {
+                val sharedPref: SharedPreferences = getSharedPreferences(
+                        getString(R.string.preference_file_key), Context.MODE_PRIVATE)
+                with(sharedPref.edit()){
+                    putBoolean(getString(R.string.loginSharedPref), false)
+                    putString(getString(R.string.nameSharedPref), "")
+                    putInt(getString(R.string.idSharedPref), 0)
+                    commit()
+                }
+
+                val intent = Intent (this, LoginActivity::class.java)
+                startActivity(intent)
+            }
         }
         return true
+    }
+
+    override fun onBackPressed() {
+        finish()
     }
 }
