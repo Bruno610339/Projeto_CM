@@ -76,6 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/text_password"
             android:layout_centerHorizontal="true"
+            android:inputType="textPassword"
             android:layout_marginLeft="50dp"
             android:layout_marginStart="50dp">
         </EditText>
