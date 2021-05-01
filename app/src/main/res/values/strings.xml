@@ -17,6 +17,8 @@
     <string name="preference_file_key" translatable="false">SP</string>
     <string name="nameSharedPref" translatable="false">nameSP</string>
     <string name="idSharedPref" translatable="false">idSP</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="welcome">"Welcome "</string>
 
     <string name="toast_01">New note inserted!</string>
     <string name="toast_02">Can´t Edit, field empty!</string>
@@ -27,5 +29,5 @@
     <string name="toast_07">Username field empty!</string>
     <string name="toast_08">Password field empty!</string>
     <string name="toast_09">Invalid Login!</string>
-    <string name="welcome">"Welcome "</string>
+
 </resources>

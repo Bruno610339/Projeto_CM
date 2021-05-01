@@ -40,9 +40,9 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //Check if login is already have login and redirect to MainActivity
+        //Check if login is already have login and redirect to MapsActivity
         if(loginSharedPref) {
-            val intent = Intent (this, MainActivity::class.java)
+            val intent = Intent (this, MapsActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -55,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
 
         val request = ServiceBuilder.buildService(EndPoints::class.java)
         val call = request.getUserByName(nameText.text.toString())
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, MapsActivity::class.java)
 
         //If Both fields empty
         if (nameText.text.toString().isEmpty() && passText.text.toString().isEmpty()) {
