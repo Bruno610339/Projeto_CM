@@ -89,6 +89,7 @@ class LoginActivity : AppCompatActivity() {
                                 Log.d("Values", "$")
                                 commit()
                             }
+                            Toast.makeText(applicationContext, getString(R.string.welcome) + u.name, Toast.LENGTH_SHORT).show()
 
                         } else {
                             Toast.makeText(applicationContext, getString(R.string.toast_09), Toast.LENGTH_SHORT).show()

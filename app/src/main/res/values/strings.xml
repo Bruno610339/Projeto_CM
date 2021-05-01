@@ -12,18 +12,19 @@
     <string name="title_title">Title:</string>
     <string name="description_title">Description:</string>
     <string name="logout">Logout</string>
+    <string name="loginSharedPref" translatable="false">loginSP</string>
+    <string name="preference_file_key" translatable="false">SP</string>
+    <string name="nameSharedPref" translatable="false">nameSP</string>
+    <string name="idSharedPref" translatable="false">idSP</string>
 
     <string name="toast_01">New note inserted!</string>
     <string name="toast_02">Can´t Edit, field empty!</string>
     <string name="toast_03">Note updated!</string>
     <string name="toast_04">Note deleted!</string>
     <string name="toast_05">Not inserted!</string>
-    <string name="loginSharedPref">loginSP</string>
-    <string name="preference_file_key">SP</string>
-    <string name="nameSharedPref">nameSP</string>
-    <string name="idSharedPref">idSP</string>
     <string name="toast_06">Both fields empty!</string>
     <string name="toast_07">Username field empty!</string>
     <string name="toast_08">Password field empty!</string>
     <string name="toast_09">Invalid Login!</string>
+    <string name="welcome">"Welcome "</string>
 </resources>
