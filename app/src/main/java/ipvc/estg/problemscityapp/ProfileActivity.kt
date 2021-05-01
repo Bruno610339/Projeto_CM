@@ -11,7 +11,7 @@ class ProfileActivity : AppCompatActivity() {
 
         //Change the title of Activity on Bar
         val actionBar = supportActionBar
-        actionBar!!.title = "Profile"
+        actionBar!!.title = getString(R.string.profile)
         actionBar.setDisplayHomeAsUpEnabled(true)
 
     }

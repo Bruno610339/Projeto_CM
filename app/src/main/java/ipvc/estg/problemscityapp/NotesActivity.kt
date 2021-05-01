@@ -29,7 +29,7 @@ class NotesActivity: AppCompatActivity(), LineAdapter.SendInfo {
 
         //Change the title of Activity on Bar
         val actionBar = supportActionBar
-        actionBar!!.title = "Notes"
+        actionBar!!.title = getString(R.string.note)
         actionBar.setDisplayHomeAsUpEnabled(true)
 
         //RecyclerView

@@ -11,7 +11,7 @@ class HelpActivity : AppCompatActivity() {
 
         //Change the title of Activity on Bar
         val actionBar = supportActionBar
-        actionBar!!.title = "Help"
+        actionBar!!.title = getString(R.string.help)
         actionBar.setDisplayHomeAsUpEnabled(true)
 
     }
