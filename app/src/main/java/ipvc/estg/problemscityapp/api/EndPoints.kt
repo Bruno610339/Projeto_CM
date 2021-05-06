@@ -8,6 +8,9 @@ interface EndPoints {
     @GET("user/{name}")
     fun getUserByName(@Path("name") name: String): Call<User>
 
+    @GET("report/{id}")
+    fun getReportById(@Path("id") id: Int): Call<Report>
+
     @GET("report")
     fun getReports(): Call<List<Report>>
 
@@ -22,4 +25,18 @@ interface EndPoints {
                   @Field("user_id") user_id: Int
     ): Call<Report>
 
+    @FormUrlEncoded
+    @POST("report/updateReport/{id}")
+    fun updateReport(@Field("title") title: String,
+                     @Field("description") description: String,
+                     @Field("lat") lat: Float,
+                     @Field("lng") lng: Float,
+                     @Field("date_creation") date_creation: String,
+                     @Field("type") type: String,
+                     @Field("user_id") user_id: Int
+    ): Call<Report>
+
+    @FormUrlEncoded
+    @POST("report/deleteReport/{id}")
+    fun deleteReport(@Field("id") id: Int): Call<Report>
 }

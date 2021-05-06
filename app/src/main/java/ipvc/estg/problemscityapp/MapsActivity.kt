@@ -68,6 +68,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                         if(report.user_id == idUser) {
                             mMap.addMarker(MarkerOptions().position(position).title(report.title)
                                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)))
+                            //mMap.setOnInfoWindowClickListener {
+                                //val intent = Intent(this, EditReportActivity::class.java)
+                                //startIntent(intent)
+                            //}
                         }
                         else {
                             mMap.addMarker(MarkerOptions().position(position).title(report.title)
