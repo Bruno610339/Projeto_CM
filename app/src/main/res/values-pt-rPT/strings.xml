@@ -27,5 +27,7 @@
     <string name="toast_07">Campo Utilizador vazio!</string>
     <string name="toast_08">Campo Password vazio!</string>
     <string name="toast_09">Login Inválido!</string>
+    <string name="toast_10">Todos os campos devem estar preenchidos</string>
+    <string name="toast_11">Problema adicionado</string>
 
 </resources>
