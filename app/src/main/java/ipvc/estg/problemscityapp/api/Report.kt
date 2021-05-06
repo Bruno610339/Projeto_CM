@@ -8,7 +8,7 @@ data class Report (
     val description: String,
     val lat: Float,
     val lng: Float,
-    val date_creation: Date,
+    val date_creation: String,
     val type: String,
     val user_id: Int
 )
