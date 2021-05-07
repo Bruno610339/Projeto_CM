@@ -25,6 +25,17 @@
     <string name="title">title</string>
     <string name="description">description</string>
     <string name="type">type</string>
+    <string name="checkInfo">Click to see details</string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
+    <string name="editReport">Edit Report</string>
+    <string name="descriptionTitle">"Description: "</string>
+    <string name="dateCreationTitle">"Date Creation: "</string>
+    <string name="typeTitle">"Type: "</string>
+    <string name="userIdTitle">"User Id: "</string>
+    <string name="latTitle" translatable="false">"Latitude: "</string>
+    <string name="lngTitle" translatable="false">"Longitude: "</string>
+    <string name="idReportSP" translatable="false">idReportSP</string>
 
     <string name="toast_01">New note inserted!</string>
     <string name="toast_02">Can´t Edit, field empty!</string>
@@ -35,7 +46,10 @@
     <string name="toast_07">Username field empty!</string>
     <string name="toast_08">Password field empty!</string>
     <string name="toast_09">Invalid Login!</string>
-    <string name="toast_10">All the fields must be filled</string>
-    <string name="toast_11">Report Added</string>
+    <string name="toast_10">All the fields must be filled!</string>
+    <string name="toast_11">Report Added!</string>
+    <string name="toast_12">Report Updated!</string>
+    <string name="all">All</string>
+    <string name="km"><![CDATA[< 5 Km]]></string>
 
 </resources>

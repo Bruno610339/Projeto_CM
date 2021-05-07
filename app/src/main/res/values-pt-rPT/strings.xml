@@ -17,6 +17,14 @@
     <string name="title">titulo</string>
     <string name="description">descrição</string>
     <string name="type">tipo</string>
+    <string name="checkInfo">Clique para ver detalhes</string>
+    <string name="delete">Remover</string>
+    <string name="update">Editar</string>
+    <string name="editReport">Editar Problema</string>
+    <string name="descriptionTitle">"Descrição: "</string>
+    <string name="dateCreationTitle">"Data da Criação: "</string>
+    <string name="typeTitle">"Tipo: "</string>
+    <string name="userIdTitle">"Id do Utilizador : "</string>
 
     <string name="toast_01">Nova Nota inserida!</string>
     <string name="toast_02">Sem Edição, campo vazio!</string>
@@ -29,5 +37,6 @@
     <string name="toast_09">Login Inválido!</string>
     <string name="toast_10">Todos os campos devem estar preenchidos</string>
     <string name="toast_11">Problema adicionado</string>
+    <string name="toast_12">Problema Editado!</string>
 
 </resources>

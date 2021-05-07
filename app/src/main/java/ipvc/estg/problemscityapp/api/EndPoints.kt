@@ -27,7 +27,8 @@ interface EndPoints {
 
     @FormUrlEncoded
     @POST("report/updateReport/{id}")
-    fun updateReport(@Field("title") title: String,
+    fun updateReport(@Path("id") id: Int,
+                     @Field("title") title: String,
                      @Field("description") description: String,
                      @Field("lat") lat: Float,
                      @Field("lng") lng: Float,

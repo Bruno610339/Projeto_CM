@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.RadioButton
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.*
@@ -43,7 +44,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         //Variables Shared Preferences
         val sharedPref: SharedPreferences = getSharedPreferences(
                 getString(R.string.preference_file_key), Context.MODE_PRIVATE)
-        val idUser= sharedPref.getInt(getString(R.string.idSharedPref), 0)
+        val idUser = sharedPref.getInt(getString(R.string.idSharedPref), 0)
         val latSharedPref = sharedPref.getFloat(getString(R.string.latSharedPref), 0.0f)
         val lngSharedPref = sharedPref.getFloat(getString(R.string.lngSharedPref), 0.0f)
 
@@ -54,36 +55,107 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         //initialize fusedLocationClient
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
 
-        val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val call = request.getReports()
-        var position: LatLng
+        val filterAll = findViewById<RadioButton>(R.id.filterAll)
+        filterAll.setOnClickListener {
+            val request = ServiceBuilder.buildService(EndPoints::class.java)
+            val call = request.getReports()
+            var position: LatLng
 
-        call.enqueue(object : Callback<List<Report>> {
-            override fun onResponse(call: Call<List<Report>>, response: Response<List<Report>>) {
-                if (response.isSuccessful) {
-                    reports = response.body()!!
+            mMap.clear()
+            call.enqueue(object : Callback<List<Report>> {
+                override fun onResponse(call: Call<List<Report>>, response: Response<List<Report>>) {
+                    if (response.isSuccessful) {
+                        reports = response.body()!!
 
-                    for(report in reports) {
-                        position = LatLng(report.lat.toString().toDouble(), report.lng.toString().toDouble())
-                        if(report.user_id == idUser) {
-                            mMap.addMarker(MarkerOptions().position(position).title(report.title)
-                                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)))
-                            //mMap.setOnInfoWindowClickListener {
-                                //val intent = Intent(this, EditReportActivity::class.java)
-                                //startIntent(intent)
-                            //}
-                        }
-                        else {
-                            mMap.addMarker(MarkerOptions().position(position).title(report.title)
-                                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)))
+                        for(report in reports) {
+                            position = LatLng(report.lat.toString().toDouble(), report.lng.toString().toDouble())
+                            if(report.user_id == idUser) {
+                                mMap.addMarker(MarkerOptions().position(position).title(report.title)
+                                        .snippet(
+                                                getString(R.string.descriptionTitle) + report.description + "\n" +
+                                                        getString(R.string.latTitle) + report.lat + "\n" +
+                                                        getString(R.string.lngTitle) + report.lng + "\n" +
+                                                        getString(R.string.dateCreationTitle) + report.date_creation + "\n" +
+                                                        getString(R.string.typeTitle) + report.type + "\n" +
+                                                        getString(R.string.userIdTitle) + report.user_id
+                                        )
+                                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)))
+                                mMap.setInfoWindowAdapter(InfoWindowAdapter(this@MapsActivity))
+                            }
+                            else {
+                                mMap.addMarker(MarkerOptions().position(position).title(report.title)
+                                        .snippet(
+                                                getString(R.string.descriptionTitle) + report.description + "\n" +
+                                                        getString(R.string.latTitle) + report.lat + "\n" +
+                                                        getString(R.string.lngTitle) + report.lng + "\n" +
+                                                        getString(R.string.dateCreationTitle) + report.date_creation + "\n" +
+                                                        getString(R.string.typeTitle) + report.type + "\n" +
+                                                        getString(R.string.userIdTitle) + report.user_id
+                                        )
+                                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)))
+                                mMap.setInfoWindowAdapter(InfoWindowAdapter(this@MapsActivity))
+                            }
                         }
                     }
                 }
-            }
-            override fun onFailure(call: Call<List<Report>>, t: Throwable) {
-                Toast.makeText(this@MapsActivity, "${t.message}", Toast.LENGTH_SHORT).show()
-            }
-        })
+                override fun onFailure(call: Call<List<Report>>, t: Throwable) {
+                    Toast.makeText(this@MapsActivity, "${t.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
+
+        val filter5km = findViewById<RadioButton>(R.id.filter5km)
+        filter5km.setOnClickListener {
+            val request = ServiceBuilder.buildService(EndPoints::class.java)
+            val call = request.getReports()
+            var position: LatLng
+
+            mMap.clear()
+            call.enqueue(object : Callback<List<Report>> {
+                override fun onResponse(call: Call<List<Report>>, response: Response<List<Report>>) {
+                    if (response.isSuccessful) {
+                        reports = response.body()!!
+
+                        for(report in reports) {
+                            val distance = calculateDistance(report.lat.toDouble(), report.lng.toDouble(),
+                                            lastLocation.latitude, lastLocation.longitude)
+                            position = LatLng(report.lat.toString().toDouble(), report.lng.toString().toDouble())
+                            if(distance < 5000) {
+                                if(report.user_id == idUser) {
+                                    mMap.addMarker(MarkerOptions().position(position).title(report.title)
+                                            .snippet(
+                                                    getString(R.string.descriptionTitle) + report.description + "\n" +
+                                                            getString(R.string.latTitle) + report.lat + "\n" +
+                                                            getString(R.string.lngTitle) + report.lng + "\n" +
+                                                            getString(R.string.dateCreationTitle) + report.date_creation + "\n" +
+                                                            getString(R.string.typeTitle) + report.type + "\n" +
+                                                            getString(R.string.userIdTitle) + report.user_id
+                                            )
+                                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)))
+                                    mMap.setInfoWindowAdapter(InfoWindowAdapter(this@MapsActivity))
+                                }
+                                else {
+                                    mMap.addMarker(MarkerOptions().position(position).title(report.title)
+                                            .snippet(
+                                                    getString(R.string.descriptionTitle) + report.description + "\n" +
+                                                            getString(R.string.latTitle) + report.lat + "\n" +
+                                                            getString(R.string.lngTitle) + report.lng + "\n" +
+                                                            getString(R.string.dateCreationTitle) + report.date_creation + "\n" +
+                                                            getString(R.string.typeTitle) + report.type + "\n" +
+                                                            getString(R.string.userIdTitle) + report.user_id
+                                            )
+                                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)))
+                                    mMap.setInfoWindowAdapter(InfoWindowAdapter(this@MapsActivity))
+                                }
+                            }
+                        }
+                    }
+                }
+                override fun onFailure(call: Call<List<Report>>, t: Throwable) {
+                    Toast.makeText(this@MapsActivity, "${t.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
 
         locationCallback = object : LocationCallback() {
             override fun onLocationResult(p0: LocationResult) {
@@ -108,6 +180,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         //request location
         createLocationRequest()
+    }
+
+    //Calculate distance between user and problems
+    fun calculateDistance(lat1: Double, lng1: Double, lat2: Double, lng2: Double): Float {
+        val results = FloatArray(1)
+        Location.distanceBetween(lat1, lng1, lat2, lng2, results)
+        // distance in meter
+        return results[0]
     }
 
     //Function to call the menu
@@ -151,9 +231,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-
-        //val center = LatLng(41.373215, -8.487476)
-        //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(center, 12F))
     }
 
     //added to implement periodic location updates
